@@ -15,6 +15,7 @@ import string
 
 def main():
     data = get_data()
+
     while data[0] != 0:
         result = caesar(data[1], data[2], data[3])
         print(result)
@@ -34,9 +35,11 @@ def get_data() -> list:
             [3]: key (int) - ключ шифрования (смещение по шифру)
     """
     flag = 1
+
     text = input("Введите текст (enter для выхода): ")
     if text == '':
         return [0]
+
     mode = input("Режим работы "
                  "(1 - шифрование, 0 - дешифрование): ")
     while mode != '1' and mode != '0':
@@ -44,11 +47,13 @@ def get_data() -> list:
                      'или 1 - шифрование!\n'
                      'Введите режим работы: ')
     mode = int(mode)
+
     key = input("Введите ключ шифрования (целое число): ")
     while not all(char in '0123456789-' for char in key):
         key = input("Требуется целочисленное значение!\n"
                     "Введите ключ шифрования: ")
     key = int(key)
+
     return [flag, text, mode, key]
 
 
@@ -81,6 +86,7 @@ def caesar(text: str, mode: int, key: int) -> str:
     russian_uppercase = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
     russian_lowercase = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
     result = ''
+
     if mode == 0:
         for i in range(len(text)):
             if text[i] not in english_lowercase + english_uppercase + \
@@ -109,6 +115,7 @@ def caesar(text: str, mode: int, key: int) -> str:
                             (russian_lowercase.index(text[i]) - key)
                             % len(russian_lowercase)
                         ]
+
     else:
         for i in range(len(text)):
             if text[i] not in english_lowercase + english_uppercase + \
@@ -137,6 +144,7 @@ def caesar(text: str, mode: int, key: int) -> str:
                             (russian_lowercase.index(text[i]) + key) %
                             len(russian_lowercase)
                         ]
+
     return result
 
 
