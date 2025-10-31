@@ -18,6 +18,6 @@ for i in range(3):
 for i in range(2):
     randnum = random.randint(0, len(special) - 1)
     password += special[randnum]
-  
+
 vars = [''.join(i) for i in itertools.permutations(password)]
 print(vars[random.randint(0, len(vars) - 1)])
