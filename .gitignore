@@ -1,4 +1,5 @@
 tic_tac_toe/gameparts/__pycache__/__init__.cpython-313.pyc
 tic_tac_toe/gameparts/__pycache__/exceptions.cpython-313.pyc
-practice_6/lesson/library/.venv
-tic_tac_toe/venv
+**/.venv
+**/venv
+**/.env
