@@ -16,7 +16,7 @@ class Vehicle:
         self.speed = speed
         self.weight = weight
 
-    def __str__(self) -> None:
+    def __str__(self) -> str:
         """
         Метод, возвращающий описание экземлпяра класса при передачу его в
         функцию print().
@@ -52,7 +52,7 @@ class Car(Vehicle):
         super().__init__(color, speed, weight)
         self.diesel = diesel
 
-    def __str__(self) -> None:
+    def __str__(self) -> str:
         """
         Метод, возвращающий описание экземлпяра класса при передачу его в
         функцию print().
@@ -88,7 +88,7 @@ class Motorbike(Vehicle):
         super().__init__(color, speed, weight)
         self.sport = sport
 
-    def __str__(self) -> None:
+    def __str__(self) -> str:
         """
         Метод, возвращающий описание экземлпяра класса при передачу его в
         функцию print().
@@ -121,7 +121,7 @@ class Airplane(Vehicle):
         super().__init__(color, speed, weight)
         self.passenger = passenger
 
-    def __str__(self) -> None:
+    def __str__(self) -> str:
         """
         Метод, возвращающий описание экземлпяра класса при передачу его в
         функцию print().
