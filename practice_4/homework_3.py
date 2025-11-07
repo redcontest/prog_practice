@@ -1,3 +1,6 @@
+from typing import Iterator
+
+
 class Product:
     """
     Класс, описывающий некоторый товар
@@ -42,7 +45,7 @@ class ShoppingCart:
     являться итератором.
     """
 
-    def __init__(self, products: list[Product] = None) -> None:
+    def __init__(self, products: list[Product] | None = None) -> None:
         """
         Инициализатор класса ShoppingCart.
 
@@ -81,7 +84,7 @@ class ShoppingCart:
         """
         self.products.remove(product_to_delete)
 
-    def __iter__(self) -> None:
+    def __iter__(self) -> Iterator[Product]:
         """
         Магический метод для объявления объекта как итератора.
         """
@@ -89,7 +92,7 @@ class ShoppingCart:
         self.index = 0
         return self
 
-    def __next__(self) -> None:
+    def __next__(self) -> Product:
         """
         Магический метод для получения следующего товара из списка товаров.
         """
@@ -145,7 +148,7 @@ class Order:
         Returnes:
             result_price (float): итоговая стоимость.
         """
-        result_price = 0
+        result_price = 0.0
         for product in self.products:
             result_price += product.price
         result_price -= result_price * (self.discount / 100)
@@ -172,7 +175,10 @@ class Customer:
     """
 
     def __init__(
-        self, full_name: str, customer_id: int, orders: list[Order] = None
+        self,
+        full_name: str,
+        customer_id: int,
+        orders: list[Order] | None = None
     ) -> None:
         """
         Инициализатор для класса Customer.
