@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Any
 
 
 class Book:
@@ -26,5 +27,5 @@ class Book:
     def __str__(self) -> str:
         return f"{self.author} - {self.title} ({self.year})"
 
-    def __eq__(self, other: any) -> bool:
+    def __eq__(self, other: Any) -> bool:
         return isinstance(other, Book) and self.title == other.title
