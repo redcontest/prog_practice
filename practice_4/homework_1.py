@@ -41,7 +41,7 @@ class Manager(Employee):
         self.sales = sales
 
     @property
-    def salary(self) -> None:
+    def salary(self) -> int:
         """
         Свойство для получения зарплаты менеджера.
 
@@ -70,7 +70,7 @@ class Developer(Employee):
         self.contributions = contributions
 
     @property
-    def salary(self) -> None:
+    def salary(self) -> int:
         """
         Свойство для получения зарплаты разработчика.
 
