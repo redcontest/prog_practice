@@ -92,7 +92,7 @@ def find(items, needle):
         needle (str): подстрока, которая ищется среди всех названий продуктов
                       в холодильнике.
 
-    Returnes:
+    Returns:
         result (list): список названий, соответствующих подстроке needle.
     """
     items_keys = dict.keys(items)  # Получаем все ключи (названия продуктов).
@@ -112,7 +112,7 @@ def amount(items, needle):
         items (dict): словарь, представляющий собой холодильник.
         needle (str): подстрока, которой должны соответствовать продукты.
 
-    Returnes:
+    Returns:
         amount_of_products (Decimal): найденное количество соответствий.
     """
     amount_of_products = 0  # Переменная для подсчёта количества продуктов.
