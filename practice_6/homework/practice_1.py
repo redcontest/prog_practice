@@ -67,5 +67,6 @@ def get_pokemon_data(name: str) -> None:
 pokemon_list = get_list_of_pokemon(20)
 print(pokemon_list)
 
+# Тестируем get_pokemon_data().
 pokemon_name = input('Введите имя покемона (например, clefairy): ')
 get_pokemon_data(pokemon_name)
