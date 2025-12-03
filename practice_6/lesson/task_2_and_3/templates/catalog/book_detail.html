@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2>Свежие книги</h2>
+  <ul>
+    {% for book in books %}
+      <li>
+        <h3>{{ book.title }}</h3>
+        <p>Опубликовано: {{ book.published_date }}</p>
+        <p>"{{ book.content|truncatechars:150 }}"</p>
+        <p>Автор: {{ book.author }}</p>
+      </li>
+    {% empty %}
+      <p>Пока нет книг.</p>
+    {% endfor %}
+  </ul>
+{% endblock content %}
