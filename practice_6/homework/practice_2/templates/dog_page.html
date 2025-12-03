@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dog Page</title>
+</head>
+<body>
+    {% comment %}
+        Выгружаем список всех пород, которые есть на DogAPI
+    {% endcomment %}
+    <h1>Список пород</h1>
+    <ul>
+        {% for breed in breeds %}
+            <li>{{ breed }}</li>
+        {% endfor %}
+    </ul>
+    {% comment %}
+        Делаем форму, которая формирует POST-запрос и передает в view-функцию
+        для дальнейшего получения картинок выбранных пород.
+    {% endcomment %}
+    <h2>Получить фото выбранных пород</h2>
+    <form method="POST">
+        <label>Введите породы через запятую:</label><br>
+        <input type="text" name="breeds" placeholder="terrier, husky, boxer"
+               value="{{ selected_breeds|join:', ' }}">
+        <button type="submit">Показать фото</button>
+    </form>
+    {% comment %}
+        Выгружаем в виде немаркированного списка названия и фото выбранных
+        пород.
+        Но только если собаки были выбраны.
+    {% endcomment %}
+    {% if selected_breeds %}
+    <h2>Фото выбранных собак:</h2>
+    <ul>
+        {% for breed, image in zipped_selected_dogs %}
+            {% if breed in breeds %}
+                <li>
+                    {{ breed }}<br>
+                    {% if image %}
+                        <img src="{{ image }}" width="300" height="300"><br>
+                    {% else %}
+                        Фото не найдено!<br>
+                    {% endif %}
+                </li>
+            {% else %}
+                <li>{{ breed }} - Нет такой породы!<br></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>
